@@ -18,18 +18,18 @@ class Provider implements ProviderInterface
     const KERNEL = 'Zapheus\Bridge\Symfony\Kernel';
 
     /**
-     * @var \Symfony\Component\HttpKernel\Bundle\BundleInterface
+     * @var \Symfony\Component\HttpKernel\Bundle\BundleInterface[]
      */
-    protected $bundle;
+    protected $bundles;
 
     /**
      * Initializes the provider instance.
      *
-     * @param \Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle
+     * @param \Symfony\Component\HttpKernel\Bundle\BundleInterface[] $bundles
      */
-    public function __construct(BundleInterface $bundle)
+    public function __construct(array $bundles)
     {
-        $this->bundle = $bundle;
+        $this->bundles = $bundles;
     }
 
     /**
@@ -40,19 +40,9 @@ class Provider implements ProviderInterface
      */
     public function register(WritableInterface $container)
     {
-        if ($container->has(self::KERNEL) === true) {
-            $kernel = $container->get(self::KERNEL);
-
-            $kernel->add($this->bundle);
-
-            return $container->set(self::KERNEL, $kernel);
-        }
-
         $configuration = $container->get(ProviderInterface::CONFIG);
 
-        $kernel = new Kernel($configuration);
-
-        $kernel->add($this->bundle);
+        $kernel = new Kernel($this->bundles, $configuration);
 
         return $container->set(self::KERNEL, $kernel);
     }

@@ -71,15 +71,11 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testRegisterMethod()
     {
-        $container = $this->container;
+        $bundles = array(new SlytherinRoleBundle, new SlytherinAuthBundle);
 
-        $role = new Provider(new SlytherinRoleBundle);
+        $provider = new Provider($bundles);
 
-        $auth = new Provider(new SlytherinAuthBundle);
-
-        $container = $role->register($container);
-
-        $container = $auth->register($container);
+        $container = $provider->register($this->container);
 
         $container = $this->framework->register($container);
 

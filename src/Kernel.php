@@ -22,16 +22,17 @@ class Kernel extends HttpKernel
     protected $configuration;
 
     /**
-     * @var array
+     * @var \Symfony\Component\HttpKernel\Bundle\BundleInterface[]
      */
     protected $items = array();
 
     /**
      * Initializes the kernel instance.
      *
-     * @param \Zapheus\Provider\ConfigurationInterface $configuration
+     * @param \Symfony\Component\HttpKernel\Bundle\BundleInterface[] $bundles
+     * @param \Zapheus\Provider\ConfigurationInterface               $configuration
      */
-    public function __construct(ConfigurationInterface $configuration)
+    public function __construct(array $bundles, ConfigurationInterface $configuration)
     {
         $this->configuration = $configuration;
 
@@ -48,18 +49,8 @@ class Kernel extends HttpKernel
         $this->name = $parameters['kernel.name'];
 
         $this->debug && $this->startTime = microtime(true);
-    }
 
-    /**
-     * Adds a new bundle to the collection.
-     *
-     * @param \Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle
-     */
-    public function add(BundleInterface $bundle)
-    {
-        $this->items[] = $bundle;
-
-        return $this;
+        $this->items = $bundles;
     }
 
     /**

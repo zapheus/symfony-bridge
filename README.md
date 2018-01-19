@@ -20,18 +20,19 @@ $ composer require zapheus/symfony-bridge
 ## Usage
 
 ``` php
-use Acme\Bundles\TestServiceBundle;
+use Acme\Bundles\AcmeAuthBundle;
+use Acme\Bundles\AcmeRoleBundle;
 use Zapheus\Bridge\Symfony\Provider;
 use Zapheus\Container\Container;
 use Zapheus\Provider\FrameworkProvider;
 
-$bundle = TestServiceBundle::class;
+$bundles = array(new AcmeRoleBundle, new AcmeAuthBundle);
 
-$framework = new FrameworkProvider;
-
-$provider = new Provider($bundle);
+$provider = new Provider($bundles);
 
 $container = $provider->register(new Container);
+
+$framework = new FrameworkProvider;
 
 $container = $framework->register($container);
 ```
