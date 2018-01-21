@@ -2,7 +2,7 @@
 
 namespace Zapheus\Bridge\Symfony;
 
-use Symfony\Component\DependencyInjection\ContainerInterface as Symfony;
+use Symfony\Component\DependencyInjection\ContainerInterface as SymfonyContainerInterface;
 use Zapheus\Container\ContainerInterface;
 
 /**
@@ -23,7 +23,7 @@ class Container implements ContainerInterface
      *
      * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
      */
-    public function __construct(Symfony $container)
+    public function __construct(SymfonyContainerInterface $container)
     {
         $this->container = $container;
     }

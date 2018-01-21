@@ -3,8 +3,6 @@
 namespace Zapheus\Bridge\Symfony;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel as HttpKernel;
 use Zapheus\Provider\ConfigurationInterface;
 

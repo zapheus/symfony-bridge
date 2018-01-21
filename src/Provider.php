@@ -15,7 +15,7 @@ use Zapheus\Provider\ProviderInterface;
  */
 class Provider implements ProviderInterface
 {
-    const KERNEL = 'Zapheus\Bridge\Symfony\Kernel';
+    const CONTAINER = 'Symfony\Component\DependencyInjection\Container';
 
     /**
      * @var \Symfony\Component\HttpKernel\Bundle\BundleInterface[]
@@ -44,6 +44,10 @@ class Provider implements ProviderInterface
 
         $kernel = new Kernel($this->bundles, $configuration);
 
-        return $container->set(self::KERNEL, $kernel);
+        $kernel->boot();
+
+        $result = $kernel->getContainer();
+
+        return $container->set(self::CONTAINER, $result);
     }
 }
