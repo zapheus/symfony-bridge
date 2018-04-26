@@ -3,16 +3,16 @@
 namespace Zapheus\Bridge\Symfony;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Kernel as HttpKernel;
+use Symfony\Component\HttpKernel\Kernel;
 use Zapheus\Provider\ConfigurationInterface;
 
 /**
- * Kernel
+ * Zapheus Kernel
  *
  * @package Zapheus
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class Kernel extends HttpKernel
+class ZapheusKernel extends Kernel
 {
     /**
      * @var \Zapheus\Provider\ConfigurationInterface

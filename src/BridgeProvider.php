@@ -2,18 +2,16 @@
 
 namespace Zapheus\Bridge\Symfony;
 
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Zapheus\Bridge\Symfony\Kernel;
 use Zapheus\Container\WritableInterface;
 use Zapheus\Provider\ProviderInterface;
 
 /**
- * Provider
+ * Bridge Provider
  *
  * @package Zapheus
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class Provider implements ProviderInterface
+class BridgeProvider implements ProviderInterface
 {
     const CONTAINER = 'Symfony\Component\DependencyInjection\Container';
 
@@ -42,7 +40,7 @@ class Provider implements ProviderInterface
     {
         $configuration = $container->get(ProviderInterface::CONFIG);
 
-        $kernel = new Kernel($this->bundles, $configuration);
+        $kernel = new ZapheusKernel($this->bundles, $configuration);
 
         $kernel->boot();
 

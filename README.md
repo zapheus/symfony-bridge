@@ -22,19 +22,16 @@ $ composer require zapheus/symfony-bridge
 ``` php
 use Acme\Bundles\AcmeAuthBundle;
 use Acme\Bundles\AcmeRoleBundle;
-use Zapheus\Bridge\Symfony\Provider;
+use Zapheus\Bridge\Symfony\BridgeProvider;
 use Zapheus\Container\Container;
-use Zapheus\Provider\FrameworkProvider;
 
 $bundles = array(new AcmeRoleBundle, new AcmeAuthBundle);
 
-$provider = new Provider($bundles);
+$provider = new Provider((array) $bundles);
 
 $container = $provider->register(new Container);
 
-$framework = new FrameworkProvider;
-
-$container = $framework->register($container);
+$symfony = $container->get(BridgeProvider::CONTAINER);
 ```
 
 ## Change log
