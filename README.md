@@ -1,7 +1,7 @@
 # Symfony Bundle Bridge
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]][link-license]
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
@@ -9,15 +9,15 @@
 
 Converts [Symfony Bundles](https://symfony.com/doc/current/bundles.html) to [Zapheus](https://github.com/zapheus/zapheus) providers.
 
-## Install
+## Installation
 
-Via Composer
+Install `Symfony Bridge` via [Composer](https://getcomposer.org/):
 
 ``` bash
 $ composer require zapheus/symfony-bridge
 ```
 
-## Usage
+## Basic Usage
 
 ``` php
 use Acme\Bundles\AcmeAuthBundle;
@@ -34,9 +34,9 @@ $container = $provider->register(new Container);
 $symfony = $container->get(BridgeProvider::CONTAINER);
 ```
 
-## Change log
+## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG][link-changelog] for more information what has changed recently.
 
 ## Testing
 
@@ -44,30 +44,26 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 $ composer test
 ```
 
-## Security
-
-If you discover any security related issues, please email rougingutib@gmail.com instead of using the issue tracker.
-
 ## Credits
 
-- [Rougin Royce Gutib][link-author]
-- [All Contributors][link-contributors]
+- [All contributors][link-contributors]
 
 ## License
 
-The MIT License (MIT). Please see [LICENSE.md](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE][link-license] for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/zapheus/symfony-bridge.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/zapheus/symfony-bridge/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/zapheus/symfony-bridge.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/zapheus/symfony-bridge.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/zapheus/symfony-bridge.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/zapheus/symfony-bridge.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/zapheus/symfony-bridge/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/zapheus/symfony-bridge.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/zapheus/symfony-bridge
-[link-travis]: https://travis-ci.org/zapheus/symfony-bridge
-[link-scrutinizer]: https://scrutinizer-ci.com/g/zapheus/symfony-bridge/code-structure
+[link-changelog]: https://github.com/zapheus/symfony-bridge/blob/master/CHANGELOG.md
 [link-code-quality]: https://scrutinizer-ci.com/g/zapheus/symfony-bridge
+[link-contributors]: https://github.com/zapheus/symfony-bridge/contributors
 [link-downloads]: https://packagist.org/packages/zapheus/symfony-bridge
-[link-author]: https://github.com/rougin
-[link-contributors]: ../../contributors
+[link-license]: https://github.com/zapheus/symfony-bridge/blob/master/LICENSE.md
+[link-packagist]: https://packagist.org/packages/zapheus/symfony-bridge
+[link-scrutinizer]: https://scrutinizer-ci.com/g/zapheus/symfony-bridge/code-structure
+[link-travis]: https://travis-ci.org/zapheus/symfony-bridge
