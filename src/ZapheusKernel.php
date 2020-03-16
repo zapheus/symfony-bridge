@@ -10,7 +10,7 @@ use Zapheus\Provider\ConfigurationInterface;
  * Zapheus Kernel
  *
  * @package Zapheus
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class ZapheusKernel extends Kernel
 {
@@ -71,13 +71,16 @@ class ZapheusKernel extends Kernel
     {
         $configuration = $this->configuration;
 
-        $loader->load(function ($container) use ($configuration) {
+        $loader->load(function ($container) use ($configuration)
+        {
             $items = $configuration->get('symfony', array(), true);
 
-            foreach ((array) $items as $key => $value) {
-                $exists = $container->hasParameter($key) === true;
-
-                $exists || $container->setParameter($key, $value);
+            foreach ((array) $items as $key => $value)
+            {
+                if (! $container->hasParameter($key))
+                {
+                    $container->setParameter($key, $value);
+                }
             }
         });
     }
@@ -98,10 +101,12 @@ class ZapheusKernel extends Kernel
 
         $items['kernel.name'] = $this->getName();
 
-        foreach ((array) $items as $key => $value) {
-            $exists = isset($config[$key]);
-
-            $exists || $config[$key] = $value;
+        foreach ($items as $key => $value)
+        {
+            if (! isset($config[$key]))
+            {
+                $config[$key] = $value;
+            }
         }
 
         return $config;
