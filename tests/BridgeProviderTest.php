@@ -11,7 +11,7 @@ use Zapheus\Provider\Configuration;
  * Bridge Provider Test
  *
  * @package Zapheus
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class BridgeProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -87,11 +87,13 @@ class BridgeProviderTest extends \PHPUnit_Framework_TestCase
      */
     protected function clear($target)
     {
-        if (is_dir($target) === true) {
+        if (is_dir($target) === true)
+        {
             // GLOB_MARK adds a slash to directories returned
             $files = glob($target . '*', GLOB_MARK);
 
-            foreach ($files as $file) {
+            foreach ($files as $file)
+            {
                 $this->clear($file);
             }
 
