@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * Slytherin Auth Bundle
  *
  * @package Zapheus
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class SlytherinAuthBundle extends Bundle
 {
