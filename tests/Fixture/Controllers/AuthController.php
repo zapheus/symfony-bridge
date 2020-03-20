@@ -6,7 +6,7 @@ namespace Zapheus\Bridge\Symfony\Fixture\Controllers;
  * Auth Controller
  *
  * @package Zapheus
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class AuthController
 {
